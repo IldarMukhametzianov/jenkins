@@ -1,7 +1,7 @@
 pipeline {
 
   environment {
-    dockerimagename = "bravinwasike/react-app"
+    dockerimagename = "ildarmukhametzyanov/app-local-ip"
     dockerImage = ""
   }
 
@@ -11,7 +11,7 @@ pipeline {
 
     stage('Checkout Source') {
       steps {
-        git 'https://github.com/Bravinsimiyu/jenkins-kubernetes-deployment.git'
+        git 'https://github.com/IldarMukhametzianov/jenkins.git'
       }
     }
 
@@ -36,10 +36,10 @@ pipeline {
       }
     }
 
-    stage('Deploying React.js container to Kubernetes') {
+    stage('Deploying container to Kubernetes') {
       steps {
         script {
-          kubernetesDeploy(configs: "deployment.yaml", "service.yaml")
+          kubernetesDeploy(configs: "deployment.yaml")
         }
       }
     }
