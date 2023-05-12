@@ -1,7 +1,7 @@
 pipeline {
 
   environment {
-    dockerimagename = "ildarmukhametzyanov/app-local-ip"
+    dockerimagename = "ildarmukhametzyanov/app-local-ip-jenk"
     dockerImage = ""
   }
 
