@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: applocalip
+  namespace: test
+  labels: 
+    app: myapp
+spec: 
+  # replicas: 3
+  selector: 
+    matchLabels: 
+      project: myapp 
+  template: 
+    metadata: 
+      labels: 
+        project: myapp 
+    spec: 
+      containers: 
+        - name: myapp 
+          image: ildarmukhametzyanov/app-local-ip:0.1
+          ports: 
+            - containerPort: 8080
+
