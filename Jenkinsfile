@@ -38,7 +38,7 @@ pipeline {
 
     stage('Deploying container to Kubernetes') {
       steps{
-        sh 'kubectl apply -f deployment.yaml'
+        sh '/usr/bin/kubectl apply -f deployment.yaml'
       }
     }
 
