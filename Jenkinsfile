@@ -37,11 +37,7 @@ pipeline {
     }
 
     stage('Deploying container to Kubernetes') {
-      steps {
-        script {
-          kubernetesDeploy(configs: "deployment.yaml")
-        }
-      }
+      sh 'kubectl apply -f deployment.yaml'
     }
 
   }
