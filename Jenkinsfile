@@ -15,30 +15,13 @@ pipeline {
       }
     }
 
-    stage('Build image') {
-      steps{
-        script {
-          dockerImage = docker.build dockerimagename
-        }
-      }
-    }
+    
 
-    stage('Pushing Image') {
-      environment {
-               registryCredential = 'dockerhub-credentials'
-           }
-      steps{
-        script {
-          docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
-            dockerImage.push("latest")
-          }
-        }
-      }
-    }
+    
 
     stage('Deploying container to Kubernetes') {
       steps{
-        sh '/usr/bin/kubectl apply -f deployment.yaml'
+        sh 'kubectl apply -f deployment.yaml'
       }
     }
 
