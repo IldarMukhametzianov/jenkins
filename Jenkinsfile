@@ -21,7 +21,7 @@ pipeline {
 
     stage('Deploying container to Kubernetes') {
       steps{
-        withKubeConfig([credentialsId: 'minikube']) {
+        withKubeConfig([credentialsId: 'minikube', serverUrl: 'https://192.168.49.2']) {
           sh 'kubectl apply -f deployment.yaml'
         }
       }
